@@ -1,4 +1,4 @@
-package entity;
+package com.studentapp.entity;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.studentapp.controller;
 
-import entity.Student;
+import com.studentapp.entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

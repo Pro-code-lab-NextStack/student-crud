@@ -41,6 +41,12 @@
                 <prop key="format_sql">true</prop>
             </props>
         </property>
+        <property name="annotatedClasses">
+            <list>
+              <value>com.studentapp.entity.Student</value>
+            </list>
+
+        </property>
 
 
     </bean>
