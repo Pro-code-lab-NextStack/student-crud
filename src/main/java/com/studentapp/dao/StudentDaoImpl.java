@@ -1,26 +1,30 @@
 package com.studentapp.dao;
 
 import com.studentapp.entity.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
+    @Autowired
     private HibernateTemplate  hibernateTemplate;
-    @Override
+
+    @Transactional
     public boolean saveStudent(Student student) {
         hibernateTemplate.save(student);
         return true;
     }
 
-    @Override
+    @Transactional
     public boolean updateStudent(Student student) {
         hibernateTemplate.update(student);
         return true;
     }
 
-    @Override
+    @Transactional
     public boolean deleteStudent(long id) {
        Student selectedStudent =hibernateTemplate.get(Student.class, id);
        hibernateTemplate.delete(selectedStudent);
