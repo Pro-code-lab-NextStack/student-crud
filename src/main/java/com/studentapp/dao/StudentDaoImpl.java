@@ -1,33 +1,40 @@
 package com.studentapp.dao;
 
 import com.studentapp.entity.Student;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import java.util.Collections;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
+    private HibernateTemplate  hibernateTemplate;
     @Override
     public boolean saveStudent(Student student) {
-        return false;
+        hibernateTemplate.save(student);
+        return true;
     }
 
     @Override
     public boolean updateStudent(Student student) {
-        return false;
+        hibernateTemplate.update(student);
+        return true;
     }
 
     @Override
-    public boolean deleteStudent(Student student) {
-        return false;
+    public boolean deleteStudent(long id) {
+       Student selectedStudent =hibernateTemplate.get(Student.class, id);
+       hibernateTemplate.delete(selectedStudent);
+        return true;
     }
 
     @Override
     public Student findStudentById(long id) {
-        return null;
+      return hibernateTemplate.get(Student.class,id);
     }
 
     @Override
     public List<Student> findAllStudents() {
-        return Collections.emptyList();
+
+      return   hibernateTemplate.loadAll(Student.class);
     }
 }
